@@ -11,7 +11,7 @@ export const Cart = () => {
     return (
       <div>
         <h1>No hay items en el carrito</h1>
-        <Link to="/" className="Option">
+        <Link to="/" className="activeOption">
           Productos
         </Link>
       </div>
@@ -24,10 +24,10 @@ export const Cart = () => {
         <CartItem key={p.id} {...p} />
       ))}
       <h3>Total: ${total()}</h3>
-      <button onClick={() => clearCart()} className="Button">
+      <button onClick={() => clearCart()} className="Option">
         Limpiar carrito
       </button>
-      <Link to="/checkout" className="Option">
+      <Link to="/checkout" className="activeOption">
         Checkout
       </Link>
     </div>

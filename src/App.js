@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <CartProvider>
+          <Header />
           <NavBar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
