@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
   {
     id: "1",
     name: "Iphone 12",
@@ -71,9 +71,9 @@ const products = [
     img: "https://e7.pngegg.com/pngimages/461/995/png-clipart-tablet-tablet-thumbnail.png",
     stock: "25",
   },
-];
+]; */
 
-export const getProducts = () => {
+/* export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
@@ -96,3 +96,4 @@ export const getProductByCategory = (productCategory) => {
     }, 500);
   });
 };
+ */
