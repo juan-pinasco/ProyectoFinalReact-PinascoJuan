@@ -6,9 +6,7 @@ import { db } from "../../firebase/config";
 import { CartContext } from "../../context/CartContext";
 
 const Checkout = () => {
-  // { buyer: { name, phone, email }, items: [{ id, title, price, amount }], date, total }
-
-  const { cart, total, clear } = useContext(CartContext);
+  const { cart, total, clearCart } = useContext(CartContext);
 
   const [load, setLoad] = useState(false);
   const [orderID, setOrderID] = useState();
@@ -34,7 +32,7 @@ const Checkout = () => {
       const col = collection(db, "Orders");
       const order = await addDoc(col, data);
       setOrderID(order.id);
-      clear();
+      clearCart();
       setLoad(false);
     } catch (error) {
       console.log(error);
@@ -45,8 +43,8 @@ const Checkout = () => {
     e.preventDefault();
     const dia = new Date();
     const items = cart;
-    const total = total();
-    const data = { buyer, items, dia, total };
+    const precio_total = total();
+    const data = { buyer, items, dia, precio_total };
     console.log("data", data);
     generateOrder(data);
   };
@@ -56,51 +54,51 @@ const Checkout = () => {
       <h1>Finalizando Compra</h1>
       <hr />
 
-      {load
-        ? {
-            /* <Spinner /> */
-          }
-        : !orderID && (
-            <div>
-              <h4>Completar Datos:</h4>
+      {load ? (
+        <h1> Cargando... </h1>
+      ) : (
+        !orderID && (
+          <div>
+            <h4>Completar Datos:</h4>
+            <br />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="Nombre"
+                placeholder="Nombre"
+                value={Nombre}
+                onChange={handleInputChange}
+                required
+              />
               <br />
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="Nombre"
-                  placeholder="Nombre"
-                  value={Nombre}
-                  onChange={handleInputChange}
-                  required
-                />
-                <br />
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Email"
-                  value={Email}
-                  onChange={handleInputChange}
-                  required
-                />
-                <br />
-                <input
-                  type="number"
-                  name="Telefono"
-                  placeholder="Telefono"
-                  value={Telefono}
-                  onChange={handleInputChange}
-                  required
-                />
-                <br />
-                <br />
-                <input
-                  type="submit"
-                  value="Finalizar Compra"
-                  className="btn btn-success"
-                />
-              </form>
-            </div>
-          )}
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email"
+                value={Email}
+                onChange={handleInputChange}
+                required
+              />
+              <br />
+              <input
+                type="number"
+                name="Telefono"
+                placeholder="Telefono"
+                value={Telefono}
+                onChange={handleInputChange}
+                required
+              />
+              <br />
+              <br />
+              <input
+                type="submit"
+                value="Finalizar Compra"
+                className="btn btn-success"
+              />
+            </form>
+          </div>
+        )
+      )}
 
       <div>
         {orderID && (
