@@ -1,38 +1,28 @@
-.CardItem {
+.contenedorFormularioMayor {
+  display: flex;
+  justify-content: center;
+}
+.contenedorFormulario {
   display: flex;
   flex-direction: column;
   background-color: #d0d0d0;
   margin: 20px;
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  height: 350px;
-  min-width: 200px;
+  min-height: auto;
+  width: 300px;
+  justify-content: center;
 }
-.Header {
-  border-bottom: 1px solid #e3e1e1;
+.form {
+  display: flex;
+  flex-direction: column;
 }
-
-.ItemHeader {
-  color: #2c2c2c;
-  letter-spacing: 0.05em;
-  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+.input {
+  display: flex;
+  justify-content: center;
+  height: 20px;
 }
-
-.ItemImg {
-  padding-top: 10px;
-  max-width: 100px;
-  max-height: 100px;
-}
-
-.info {
-  font-weight: bolder;
-}
-
-.ItemFooter {
-  height: 50px;
-}
-
-.activeOption {
+.botonForm {
   color: #ffffff;
   border-color: #18a2c7;
   background-color: #18a2c7;
@@ -43,4 +33,5 @@
   padding-left: 10px;
   padding-right: 10px;
   box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
 }

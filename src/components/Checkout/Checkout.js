@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import "./Checkout.css";
 
 import { db } from "../../firebase/config";
 import { CartContext } from "../../context/CartContext";
@@ -58,44 +59,49 @@ const Checkout = () => {
         <h1> Cargando... </h1>
       ) : (
         !orderID && (
-          <div>
-            <h4>Completar Datos:</h4>
-            <br />
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="Nombre"
-                placeholder="Nombre"
-                value={Nombre}
-                onChange={handleInputChange}
-                required
-              />
+          <div className="contenedorFormularioMayor">
+            <div className="contenedorFormulario">
+              <h3>Completar Datos:</h3>
               <br />
-              <input
-                type="email"
-                name="Email"
-                placeholder="Email"
-                value={Email}
-                onChange={handleInputChange}
-                required
-              />
-              <br />
-              <input
-                type="number"
-                name="Telefono"
-                placeholder="Telefono"
-                value={Telefono}
-                onChange={handleInputChange}
-                required
-              />
-              <br />
-              <br />
-              <input
-                type="submit"
-                value="Finalizar Compra"
-                className="btn btn-success"
-              />
-            </form>
+              <form onSubmit={handleSubmit} className="form">
+                <input
+                  type="text"
+                  name="Nombre"
+                  placeholder="Nombre"
+                  value={Nombre}
+                  onChange={handleInputChange}
+                  required
+                  className="input"
+                />
+                <br />
+                <input
+                  type="email"
+                  name="Email"
+                  placeholder="Email"
+                  value={Email}
+                  onChange={handleInputChange}
+                  required
+                  className="input"
+                />
+                <br />
+                <input
+                  type="number"
+                  name="Telefono"
+                  placeholder="Telefono"
+                  value={Telefono}
+                  onChange={handleInputChange}
+                  required
+                  className="input"
+                />
+                <br />
+                <br />
+                <input
+                  type="submit"
+                  value="Finalizar Compra"
+                  className="botonForm"
+                />
+              </form>
+            </div>
           </div>
         )
       )}
